@@ -1,5 +1,6 @@
 import React from 'react';
 import './header.css';
+import {Link} from 'react-router-dom';
 
 function Header({titulo}) {
   return (
@@ -7,10 +8,9 @@ function Header({titulo}) {
       <div className="nav-wrapper dark-red darken-2">
         <a href="#!" className="brand-logo">{titulo}</a>
         <ul id="nav-mobile" className="right">
-          <li><a href="#">Tienda</a></li>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Carrito</a></li>
-          <li><a href="#">Registro/Inicio sesión</a></li>
+          <li><Link href="#">Tienda</Link></li>
+          <li><Link href="#">Carrito</Link></li>
+          <li><Link href="#">Registro/Inicio sesión</Link></li>Link 
         </ul>
       </div>
     </nav>
