@@ -10,8 +10,9 @@ function Header({ titulo }) {
    <>
     <Routes>
     <Route path="/store" element={<Store />} />
-   
     </Routes>
+    <div className="foto">
+    </div>
     <nav>
       <div className="nav-wrapper dark-red darken-2">
         <a href="#!" className="brand-logo">
