@@ -28,7 +28,7 @@ function Footer() {
             <ul>
               <li></li>
               <li>Esteban</li>
-              <li>Galo</li>
+              <li>Lucio</li>
               <li>Mora</li>
             </ul>
           </div>

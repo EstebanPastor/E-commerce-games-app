@@ -4,6 +4,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Store from "../store/Store";
 import Register from "../sign_register/Sign_register";
 import Cart from "../shopping_cart/Shopping_cart";
+import { Search } from "../Search/Search";
 
 function Header({ titulo }) {
   return (
@@ -30,6 +31,7 @@ function Header({ titulo }) {
           </li>
         </ul>
       </div>
+      <Search/>
     </nav>
     </>
   );
