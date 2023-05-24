@@ -6,6 +6,7 @@ import AdminDashboard from "./routes/admin_dashboard/AdminDashboard";
 function App() {
   return (
     <>
+    <h1>Hola</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
