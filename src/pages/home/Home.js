@@ -5,7 +5,11 @@ import "../../App.css";
 function Home() {
   return (
     <>
-      <Header />
+      <div classname="App">
+        <Header
+          titulo='Steamcito'
+        />
+      </div>
       <Footer />
     </>
   );

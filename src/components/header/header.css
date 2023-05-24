@@ -83,4 +83,6 @@ nav {
       color: #000000;
     }
   }
-  
+  ul, h4, a {
+    color: white;
+  }

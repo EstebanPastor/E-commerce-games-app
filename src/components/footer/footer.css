@@ -2,20 +2,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 .container {
   max-width: 1170px;
   margin: auto;
+ 
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+ 
 }
 
 ul {
   list-style: none;
+  color:white;
+}
+ul li {
+  color:white
+}
+p {
+  color: white;
 }
 
 .footer {
@@ -30,6 +40,8 @@ ul {
 .footer-col {
   width: 25%;
   padding: 0 15px;
+  color: white;
+  
 }
 
 .footer-col h4 {
@@ -40,4 +52,7 @@ ul {
 }
 .copy {
   padding-top: 25px;
+  
 }
+
+

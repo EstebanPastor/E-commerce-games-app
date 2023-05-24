@@ -1,9 +1,9 @@
 import "./header.css";
 import { Link, Route, Routes } from "react-router-dom";
 import Store from "../store/Store";
-import Register from "../sign_register/Sign_register";
-import Cart from "../shopping_cart/Shopping_cart";
-import { Search } from "../search/Search";
+import Register from "../register/Register";
+import Cart from "../cart/Cart";
+import { Search } from "../Search/Search";
 
 function Header({ titulo }) {
   return (
@@ -11,6 +11,15 @@ function Header({ titulo }) {
       <Routes>
         <Route path="/store" element={<Store />} />
       </Routes>
+
+      <Routes>
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+
+      <Routes>
+        <Route path="/register" element={<Register />} />
+      </Routes>
+
       <div className="foto"></div>
       <nav>
         <div className="nav-wrapper dark-red darken-2">
@@ -22,7 +31,7 @@ function Header({ titulo }) {
               <Link to="/store">Tienda</Link>
             </li>
             <li>
-              <Link to="/shopping_cart">Carrito</Link>
+              <Link to="/cart">Carrito</Link>
             </li>
             <li>
               <Link to="/register">Registro/Inicio sesión</Link>
