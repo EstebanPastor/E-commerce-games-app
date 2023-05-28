@@ -1,17 +1,15 @@
-import React,{ createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
-export const ThemeContext = createContext();
+export const GlobalStateContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+export const GlobalStateProvider = ({ children }) => {
+  const [globalState, setGlobalState] = useState({
+    darkMode: false,
+  });
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <GlobalStateContext.Provider value={{ globalState, setGlobalState }}>
       {children}
-    </ThemeContext.Provider>
+    </GlobalStateContext.Provider>
   );
 };
