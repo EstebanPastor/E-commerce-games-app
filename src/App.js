@@ -4,10 +4,7 @@ import Home from "./pages/home/Home";
 import Store from "./components/store/Store";
 import AdminDashboard from "./routes/admin_dashboard/AdminDashboard";
 
-
 function App() {
-
-
   return (
     <>
       <BrowserRouter>
