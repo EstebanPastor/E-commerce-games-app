@@ -1,6 +1,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Register from "./components/register/Register";
 import Home from "./pages/home/Home";
+import Store from "./components/store/Store";
 import AdminDashboard from "./routes/admin_dashboard/AdminDashboard";
 
 
@@ -11,7 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/Register" element={<Register />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/storE" element={<Store />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -3,7 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Store from "../store/Store";
 import Register from "../register/Register";
 import Cart from "../cart/Cart";
-import Search from "../search/Search";
+import Search from "../search/Search"
 
 function Header({ titulo }) {
   return (
@@ -38,7 +38,7 @@ function Header({ titulo }) {
             </li>
           </ul>
         </div>
-        <Search />
+     <Search/>
       </nav>
     </>
   );
