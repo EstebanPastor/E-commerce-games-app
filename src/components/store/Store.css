@@ -1,56 +1,51 @@
-.game-list-item-image {
-  width: 70%;
-  height: 300px;
-  color: #fff;
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px 5px 0 0;
-  overflow: hidden;
-}
-
-.game-list-item-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-}
-
-.game-list-item-image:hover img {
-  transform: scale(1.1);
-}
 .game-list-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-
-  background-color: #3a3434;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e2dbdb;
 }
 
 .game-list-title {
   font-size: 24px;
-  color: #000;
-  font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .game-list {
+  display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
-  color: #fff;
   padding: 0;
+  margin: 0;
 }
 
 .game-list-item {
-  margin-bottom: 5px;
-  color: #fff;
-  padding: 10px;
-  background-color: #474141;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px; /* Adjust the width as needed */
+  padding: 16px;
+  margin: 8px;
+  border: 1px solid #9a9595;
+  border-radius: 4px;
 }
 
-.game-list-item:hover {
-  color: #fff;
-  background-color: #221f1f;
-  cursor: pointer;
+.game-list-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.game-list-item-details {
+  text-align: center;
+}
+
+.game-list-item-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.game-list-item-platforms {
+  font-size: 14px;
+  color: #888;
 }

@@ -1,0 +1,47 @@
+.games-landing-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.games-landing-title {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.games-landing-description {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 40px;
+}
+
+.games-landing-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game-card {
+  width: 300px;
+  margin: 16px;
+  padding: 24px;
+  background-color: #7a7878;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-card-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.game-card-title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.game-card-description {
+  font-size: 16px;
+}

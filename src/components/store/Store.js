@@ -8,7 +8,7 @@ const GameList = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=15`
+          `https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=28`
         );
         const data = await response.json();
         setGames(data.results);
@@ -22,7 +22,7 @@ const GameList = () => {
 
   return (
     <div className="game-list-container">
-    <h1 className="game-list-title">Game List</h1>
+    <h1 className="game-list-title">Steamcito lista de juegos</h1>
     <ul className="game-list">
       {games.map(game => (
         <li key={game.id} className="game-list-item">
