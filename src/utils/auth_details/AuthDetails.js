@@ -20,7 +20,7 @@ const AuthDetails = () => {
   }, []);
   const userSignOut = () => {
     signOut(auth).then(() => {
-        console.log("Sign out successfull")
+        console.log("Sign out successfully")
     }).catch(error => console.log(error))
   }
 
@@ -29,7 +29,7 @@ const AuthDetails = () => {
       {authUser ? (
         <>
           {" "}
-          <p>{`Signed in as ${authUser.email}`}n</p> <button onClick={userSignOut}>Sign out</button>
+          <p>{`Signed in as ${authUser.email}`}</p> <button onClick={userSignOut}>Sign out</button>
         </>
       ) : (
         <p>Signed out</p>

@@ -2,22 +2,20 @@ import { useState } from "react";
 import { auth } from "../../data/firebase";
 import "./Register.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import AuthDetails from "../../utils/auth_details/AuthDetails";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
-   
+  const [password, setPassword] = useState("");
 
   const signup = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        console.log(userCredential)
-    })
-   .catch((error) => {
-    console.log(error)
-   })
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -37,9 +35,7 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <button type="submit">Iniciar sesión</button>
-        <AuthDetails />
       </form>
-  
     </div>
   );
 };
