@@ -3,21 +3,19 @@ import { Link, Route, Routes } from "react-router-dom";
 import Store from "../store/Store";
 import Register from "../register/Register";
 import Cart from "../cart/Cart";
-import Search from "../search/Search";
+import SignIn from "../sign_in/SignIn";
 
 function Header({ titulo }) {
   return (
     <>
       <Routes>
         <Route path="/store" element={<Store />} />
-      </Routes>
 
-      <Routes>
         <Route path="/cart" element={<Cart />} />
-      </Routes>
 
-      <Routes>
         <Route path="/register" element={<Register />} />
+
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
 
       <div className="foto"></div>
@@ -34,7 +32,10 @@ function Header({ titulo }) {
               <Link to="/cart">Carrito</Link>
             </li>
             <li>
-              <Link to="/register">Registro/Inicio sesión</Link>
+              <Link to="/signin">Iniciar Sesión</Link>
+            </li>
+            <li>
+              <Link to="/register">Registro</Link>
             </li>
           </ul>
         </div>
