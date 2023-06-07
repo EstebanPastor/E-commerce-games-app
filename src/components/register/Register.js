@@ -80,7 +80,7 @@ function Register() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">Registrate</div>
+        <div className="title">Inicia sesión aqui:</div>
         {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
       </div>
     </div>

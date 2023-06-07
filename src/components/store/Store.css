@@ -51,7 +51,6 @@
 }
 
 .home {
-
   padding: 10px 20px;
   background-color: #46484a;
   color: #fff;
@@ -59,5 +58,13 @@
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+}
 
+.searchButton {
+  width: 125px;
+  margin-right: 25px;
+}
+
+.clearButton {
+  width: 125px;
 }

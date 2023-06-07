@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,12 +24,46 @@ const GameList = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const filteredResults = games.filter((game) =>
+      game.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredGames(filteredResults);
+  }, [searchTerm, games]);
+
+  const handleSearch = () => {
+    const filteredResults = games.filter((game) =>
+      game.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredGames(filteredResults);
+  };
+
+  const handleClearSearch = () => {
+    setSearchTerm("");
+    setFilteredGames(games);
+  };
+
   return (
     <>
       <div className="game-list-container">
-        <Search />
+        <div className="search-container">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search by game"
+            className="search-input"
+          />
+          <button onClick={handleSearch} className="searchButton">
+            Search
+          </button>
+
+          <button onClick={handleClearSearch} className="clearButton">
+            Clear
+          </button>
+        </div>
         <ul className="game-list">
-          {games.map((game) => (
+          {filteredGames.map((game) => (
             <li key={game.id} className="game-list-item">
               <img
                 src={game.background_image}
