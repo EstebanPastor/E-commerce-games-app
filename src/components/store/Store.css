@@ -49,6 +49,11 @@
   font-size: 14px;
   color: #888;
 }
+.home-link {
+  color: #000;
+  margin-right: 150px;
+  border-radius: 25px;
+}
 
 .home {
   padding: 10px 20px;

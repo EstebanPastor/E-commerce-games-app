@@ -45,8 +45,11 @@ const GameList = () => {
 
   return (
     <>
+   
       <div className="game-list-container">
+      
         <div className="search-container">
+        <Link to={"/"} className="home-link">HOME</Link>
           <input
             type="text"
             value={searchTerm}
