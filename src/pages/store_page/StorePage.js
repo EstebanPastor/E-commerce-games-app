@@ -5,7 +5,7 @@ import portal2 from "../../assets/portal_2.jpg";
 import tomb_raider from "../../assets/tomb_raider_2013.pg.jpeg";
 import csgo from "../../assets/cs_go.jpg";
 import store from "./store.css";
-import Store from "../../components/store/Store";
+
 
 const StorePage = () => {
   return (

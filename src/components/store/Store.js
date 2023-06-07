@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import Search from "../search/Search";
-import store from "./Store.css";
 import { Link } from "react-router-dom";
+import store from "./Store.css";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
