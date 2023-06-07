@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Search from "../search/Search";
-import store from "./store.css";
+import store from "./Store.css";
 import { Link } from "react-router-dom";
 
 const GameList = () => {
@@ -45,11 +45,11 @@ const GameList = () => {
 
   return (
     <>
-   
       <div className="game-list-container">
-      
         <div className="search-container">
-        <Link to={"/"} className="home-link">HOME</Link>
+          <Link to={"/"} className="home-link">
+            HOME
+          </Link>
           <input
             type="text"
             value={searchTerm}
