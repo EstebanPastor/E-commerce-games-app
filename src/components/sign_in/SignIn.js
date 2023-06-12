@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth } from "../../data/firebase";
+import { auth } from "../../firebase";
 import "./SignIn.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import AuthDetails from "../../utils/auth_details/AuthDetails";
