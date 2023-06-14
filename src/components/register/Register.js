@@ -1,20 +1,39 @@
 import { useState } from "react";
 import { auth } from "../../firebase";
 import "./Register.css";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const signup = (e) => {
+  const signup = async (e) => {
     e.preventDefault();
+    
+    
+    try {
+      const methods = await fetchSignInMethodsForEmail(auth, email);
+      if (methods && methods.length > 0) {
+        setErrorMessage("Email already exists. Please use a different email.");
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        setSuccessMessage("User created successfully!");
+        setErrorMessage("");
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage("Failed to create user. Please try again.");
+        setSuccessMessage("");
       });
   };
 
@@ -27,15 +46,17 @@ const SignUp = () => {
           placeholder="Ingresa tu e-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        ></input>
+        />
         <input
           type="password"
           placeholder="Ingresa tu password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        ></input>
+        />
         <button type="submit">Iniciar sesión</button>
       </form>
+      {errorMessage && <p>{errorMessage}</p>}
+      {successMessage && <p>{successMessage}</p>}
     </div>
   );
 };
