@@ -2,7 +2,6 @@ import "./header.css";
 import { Link, Route, Routes } from "react-router-dom";
 import Store from "../store/Store";
 import Register from "../register/Register";
-import Cart from "../cart/Cart";
 import SignIn from "../sign_in/SignIn";
 
 function Header({ titulo }) {
@@ -11,7 +10,7 @@ function Header({ titulo }) {
       <Routes>
         <Route path="/store" element={<Store />} />
 
-        <Route path="/cart" element={<Cart />} />
+     
 
         <Route path="/register" element={<Register />} />
 
@@ -28,9 +27,7 @@ function Header({ titulo }) {
             <li>
               <Link to="/store">Tienda</Link>
             </li>
-            <li>
-              <Link to="/cart">Carrito</Link>
-            </li>
+           
             <li>
               <Link to="/signin">Iniciar Sesión</Link>
             </li>

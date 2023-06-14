@@ -1,0 +1,48 @@
+.shopping-cart {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .cart-title {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .empty-cart {
+    text-align: center;
+  }
+  
+  .game-list-title {
+    margin-top: 20px;
+  }
+  
+  .game-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .game-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .game-list p {
+    margin: 0;
+  }
+  
+  .game-list button {
+    margin-left: 10px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
