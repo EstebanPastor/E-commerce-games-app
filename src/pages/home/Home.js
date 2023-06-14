@@ -6,7 +6,7 @@ import "../../App.css";
 function Home() {
   return (
     <>
-      <div classname="App">
+      <div className="App">
         <Header titulo="Steamcito" />
       </div>
       <StorePage />

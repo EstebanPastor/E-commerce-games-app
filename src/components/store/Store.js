@@ -10,8 +10,9 @@ const GameList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const url=`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=28`
         const response = await fetch(
-          `https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=28`
+        url
         );
         const data = await response.json();
         setGames(data.results);
