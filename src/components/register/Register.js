@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import "./Register.css";
-import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  fetchSignInMethodsForEmail,
+} from "firebase/auth";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -11,28 +15,28 @@ const SignUp = () => {
 
   const signup = async (e) => {
     e.preventDefault();
-    
-    
+
     try {
       const methods = await fetchSignInMethodsForEmail(auth, email);
       if (methods && methods.length > 0) {
-        setErrorMessage("Email already exists. Please use a different email.");
+        setErrorMessage(
+          "El email que estás queriendo ingresar ya existe, elige otro."
+        );
         return;
       }
     } catch (error) {
       console.log(error);
     }
 
-    
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        setSuccessMessage("User created successfully!");
+        setSuccessMessage("Usuario creado correctamente! Inicia sesión.");
         setErrorMessage("");
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage("Failed to create user. Please try again.");
+        setErrorMessage("Hubo un error, por favor intenta nuevamente.");
         setSuccessMessage("");
       });
   };
@@ -49,14 +53,19 @@ const SignUp = () => {
         />
         <input
           type="password"
-          placeholder="Ingresa tu password"
+          placeholder="Ingresa tu contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit">Registrarse</button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}
-      {successMessage && <p>{successMessage}</p>}
+      {successMessage && (
+        <p>
+          {successMessage} Haz click
+          <Link to="/signin">AQUI</Link> para iniciar sesión.
+        </p>
+      )}
     </div>
   );
 };
