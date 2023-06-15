@@ -10,10 +10,8 @@ const GameList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url=`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=10`
-        const response = await fetch(
-        url
-        );
+        const url = `https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=10`;
+        const response = await fetch(url);
         const data = await response.json();
         setGames(data.results);
       } catch (error) {
@@ -62,7 +60,7 @@ const GameList = () => {
           </button>
 
           <button onClick={handleClearSearch} className="clearButton">
-            Limpiar 
+            Limpiar
           </button>
         </div>
         <ul className="game-list">

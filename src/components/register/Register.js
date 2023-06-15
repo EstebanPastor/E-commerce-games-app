@@ -63,9 +63,12 @@ const SignUp = () => {
       {successMessage && (
         <p>
           {successMessage} Haz click
-          <Link to="/signin">AQUI</Link> para iniciar sesión.
+          <Link to="/signin"> AQUI</Link> para iniciar sesión.
         </p>
       )}
+      <button type="button">
+        <Link to="/"> Volver a la página principal</Link>
+      </button>
     </div>
   );
 };

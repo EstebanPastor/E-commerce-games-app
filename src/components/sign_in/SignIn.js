@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import "./SignIn.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -51,6 +52,9 @@ const SignIn = () => {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <AuthDetails />
       </form>
+      <button type="button">
+        <Link to="/"> Volver a la página principal</Link>
+      </button>
     </div>
   );
 };
