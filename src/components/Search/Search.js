@@ -6,12 +6,12 @@ export const Search = () => {
     <>
       {" "}
       <div className="home">
-        <Link to="/">Return home</Link>
+        <Link to="/">Volver a la página principañ</Link>
       </div>
       <div className="navbar">
         <div className="navbar-start">
           <input type="text" placeholder="Search a game..." className="search-input" />
-          <button className="search-button">Search</button>
+          <button className="search-button">¡Nuestros juegos!</button>
         </div>
       </div>
     </>

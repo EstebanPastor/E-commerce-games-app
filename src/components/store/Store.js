@@ -47,8 +47,8 @@ const GameList = () => {
     <>
       <div className="game-list-container">
         <div className="search-container">
-          <Link to={"/"} className="home-link">
-            HOME
+          <Link to={"/"} className="home-btn">
+            Página principal
           </Link>
           <input
             type="text"
@@ -58,11 +58,11 @@ const GameList = () => {
             className="search-input"
           />
           <button onClick={handleSearch} className="searchButton">
-            Search
+            Buscar juegos
           </button>
 
           <button onClick={handleClearSearch} className="clearButton">
-            Clear
+            Limpiar 
           </button>
         </div>
         <ul className="game-list">

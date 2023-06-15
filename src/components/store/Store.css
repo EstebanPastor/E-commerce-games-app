@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e2dbdb;
+  background-color: #565050;
 }
 
 .game-list-title {
@@ -49,10 +49,10 @@
   font-size: 14px;
   color: #888;
 }
-.home-link {
-  color: #000;
-  margin-right: 150px;
-  border-radius: 25px;
+.home-btn {
+  color: #111010;
+  margin-right: 120px;
+  
 }
 
 .home {
@@ -66,7 +66,8 @@
 }
 
 .searchButton {
-  width: 125px;
+  width: 126px;
+  margin-left: 12px;
   margin-right: 25px;
 }
 
