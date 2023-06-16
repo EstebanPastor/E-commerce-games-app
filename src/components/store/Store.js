@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import store from "./Store.css";
+import Footer from "../../components/footer/Footer";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -43,6 +44,7 @@ const GameList = () => {
 
   return (
     <>
+    
       <div className="game-list-container">
         <div className="search-container">
           <Link to={"/"} className="home-btn">
@@ -84,9 +86,12 @@ const GameList = () => {
             </li>
           ))}
         </ul>
+        <Footer />
       </div>
     </>
   );
+  
 };
+
 
 export default GameList;
