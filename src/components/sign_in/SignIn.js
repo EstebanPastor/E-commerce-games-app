@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import AuthDetails from "../../utils/auth_details/AuthDetails";
 import { useNavigate } from "react-router-dom";
 
+
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,10 +53,13 @@ const SignIn = () => {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <AuthDetails />
       </form>
+      
       <button type="button">
         <Link to="/"> Volver a la página principal</Link>
       </button>
+
     </div>
+  
   );
 };
 

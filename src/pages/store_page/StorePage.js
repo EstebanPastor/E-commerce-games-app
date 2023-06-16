@@ -10,12 +10,12 @@ import store from "./store.css";
 const StorePage = () => {
   return (
     <div className="games-landing-container">
-       <h2>Tenemos $100 para regalarte al momento de registrarte</h2>
+       <h3>¡Tenemos $100 para regalarte al momento de registrarte!</h3>
       <h1 className="games-landing-title">¡Bienvenido a Steamcito!</h1>
      
-      <p className="">
-        ¡Bienvenido a Steamcito! para ver nuestro catalogo completo y comprar
-        haz click aquí
+      <p className="title">
+        Podés ver nuestro catalogo completo y comprar desde la página.
+        Solo haz click aquí:
         <Link to="/store" className="game-card">
           TIENDA
         </Link>

@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import store from "./Store.css";
-import ThemeContext from "../../context/ThemeContext";
-import ToggleButton from "../toggleButon/ToggleButton";
 
 const GameList = () => {
   const [theme, setTheme] = useState("light");
@@ -11,7 +9,7 @@ const GameList = () => {
   };
   const [games, setGames] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredGames, setFilteredGames] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +18,7 @@ const GameList = () => {
         const response = await fetch(url);
         const data = await response.json();
         setGames(data.results);
+        setSearchResults(data.results);
       } catch (error) {
         console.error("Error fetching games:", error);
       }
@@ -32,64 +31,65 @@ const GameList = () => {
     const filteredResults = games.filter((game) =>
       game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredGames(filteredResults);
+    setSearchResults(filteredResults);
   }, [searchTerm, games]);
 
-
+  const handleSearch = () => {
+    const filteredResults = games.filter((game) =>
+      game.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(filteredResults);
+  };
 
   const handleClearSearch = () => {
     setSearchTerm("");
-    setFilteredGames(games);
+    setSearchResults(games);
   };
 
   return (
     <>
-      <ThemeContext.Provider value={theme}>
-        <div className="game-list-container">
-          <div className={`app ${theme}`}>
-            <ToggleButton toggleTheme={toggleTheme} />
-            <div className="search-container">
-              <Link to={"/"} className="home-btn">
-                Ir a la página principal
-              </Link>
+      <div className="game-list-container">
+        <div className="search-container">
+          <Link to={"/"} className="home-btn">
+            Página principal
+          </Link>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search by game"
+            className="search-input"
+          />
+          <button onClick={handleSearch} className="searchButton">
+            Buscar juegos
+          </button>
+          <button onClick={handleClearSearch} className="clearButton">
+            Limpiar
+          </button>
+        </div>
 
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search by game"
-                className="search-input"
+        <ul className="game-list">
+          {searchResults.map((game) => (
+            <li key={game.id} className="game-list-item">
+              <img
+                src={game.background_image}
+                alt={game.name}
+                className="game-list-item-image"
               />
 
-              <button onClick={handleClearSearch} className="clearButton">
-                Limpiar
-              </button>
-            </div>
-
-            <ul className="game-list">
-              {filteredGames.map((game) => (
-                <li key={game.id} className="game-list-item">
-                  <img
-                    src={game.background_image}
-                    alt={game.name}
-                    className="game-list-item-image"
-                  />
-
-                  <div className="game-list-item-details">
-                    <h3 className="game-list-item-title">{game.name}</h3>
-                    <p className="game-list-item-platforms">
-                      Platforms:{" "}
-                      {game.platforms
-                        .map((platform) => platform.platform.name)
-                        .join(", ")}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </ThemeContext.Provider>
+              <div className="game-list-item-details">
+                <h3 className="game-list-item-title">{game.name}</h3>
+                <p className="game-list-item-platforms">
+                  Platforms:{" "}
+                  {game.platforms
+                    .map((platform) => platform.platform.name)
+                    .join(", ")}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

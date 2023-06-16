@@ -1,11 +1,18 @@
 .games-landing-container {
   text-align: center;
   padding: 40px;
+  color:rgb(57, 87, 133);
+  font-family: 'Pacifico', cursive;
 }
 
 .games-landing-title {
   font-size: 32px;
   margin-bottom: 16px;
+  color: rgb(57, 87, 133);
+}
+
+.title {
+  color:rgb(57, 87, 133);
 }
 
 .games-landing-description {
@@ -44,4 +51,5 @@
 
 .game-card-description {
   font-size: 16px;
+  color: white;
 }

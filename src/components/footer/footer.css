@@ -7,11 +7,13 @@
 .container {
   max-width: 1170px;
   margin: auto;
+  
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 ul {
@@ -29,9 +31,9 @@ p {
   background: #000;
   color: #fff;
   padding: 30px 0;
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  bottom: 0;
+  
 }
 
 .footer-col {
@@ -48,4 +50,6 @@ p {
 }
 .copy {
   padding-top: 25px;
+  color: white;
+  
 }

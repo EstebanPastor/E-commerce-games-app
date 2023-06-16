@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import "./Register.css";
+
 import {
   createUserWithEmailAndPassword,
   fetchSignInMethodsForEmail,
@@ -69,6 +70,7 @@ const SignUp = () => {
       <button type="button">
         <Link to="/"> Volver a la página principal</Link>
       </button>
+
     </div>
   );
 };
