@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Cart.css";
+import Header from "../header/Header";
 import cs_go from "../../assets/cs_go.jpg";
 import gta_v from "../../assets/gta_v.jpg";
 import portal2 from "../../assets/portal_2.jpg";
@@ -13,6 +14,7 @@ import rdr from "../../assets/red_dead_redemption_2.jpeg";
 import skyrim from "../../assets/skyrim.jpg";
 
 const Cart = () => {
+  
   const [cartItems, setCartItems] = useState([]);
   const [availableGames, setAvailableGames] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -162,6 +164,7 @@ const Cart = () => {
 
   return (
     <div className="shopping-cart">
+      <Header titulo={"Steamcito"}/>
       <h2 className="cart-title">Carrito de compras Steamcito</h2>
       {renderCartItems()}
       <h3 className="game-list-title">¡Lista de juegos disponibles!</h3>
@@ -185,7 +188,7 @@ const Cart = () => {
         ))}
       </ul>
       {paymentSuccess && <h1>El pago fue realizado exitosamente</h1>}
-      <Link to="/">Volver a la página principal</Link>
+      <Link to="/Store">Volver a la tienda</Link>
     </div>
   );
 };

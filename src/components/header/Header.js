@@ -23,7 +23,9 @@ function Header({ titulo, isLoggedIn }) {
       <nav>
         <div className="nav-wrapper dark-red darken-2">
           <a href="#!" className="brand-logo">
-            {titulo}
+            <li>
+              <Link to= "/">{titulo}</Link>
+            </li>
           </a>
           <ul id="nav-mobile" className="right">
             <li>

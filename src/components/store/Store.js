@@ -1,8 +1,12 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import store from "./Store.css";
+import Header from "../header/Header";
 
-const GameList = () => {
+const Store = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
@@ -10,6 +14,8 @@ const GameList = () => {
   const [games, setGames] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,11 +34,14 @@ const GameList = () => {
   }, []);
 
   useEffect(() => {
-    const filteredResults = games.filter((game) =>
-      game.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(filteredResults);
-  }, [searchTerm, games]);
+    const addedGameId = location.state?.addedGameId;
+    if (addedGameId) {
+      const addedGame = games.find((game) => game.id === addedGameId);
+      if (addedGame) {
+        setCartItems((prevCartItems) => [...prevCartItems, addedGame]);
+      }
+    }
+  }, [location.state?.addedGameId]);
 
   const handleSearch = () => {
     const filteredResults = games.filter((game) =>
@@ -46,13 +55,29 @@ const GameList = () => {
     setSearchResults(games);
   };
 
+  const handleBuy = (gameId) => {
+    console.log(`Comprando juego con ID ${gameId}`);
+  };
+
+  const handleAddToCart = (gameId) => {
+    console.log(`Agregando al carrito el juego con ID ${gameId}`);
+    setCartCount((prevCount) => prevCount + 1);
+    const addedGame = games.find((game) => game.id === gameId);
+    if (addedGame) {
+      setCartItems((prevCartItems) => [...prevCartItems, addedGame]);
+    }
+  };
+
+  const handleGoCart = () => {
+    navigate("/cart");
+  };
+  
+
   return (
     <>
+      <Header titulo="Steamcito" />
       <div className="game-list-container">
         <div className="search-container">
-          <Link to={"/"} className="home-btn">
-            Página principal
-          </Link>
           <input
             type="text"
             value={searchTerm}
@@ -65,6 +90,9 @@ const GameList = () => {
           </button>
           <button onClick={handleClearSearch} className="clearButton">
             Limpiar
+          </button>
+          <button onClick={handleGoCart} className="cartButton">
+            Carrito: {cartCount}
           </button>
         </div>
 
@@ -85,6 +113,12 @@ const GameList = () => {
                     .map((platform) => platform.platform.name)
                     .join(", ")}
                 </p>
+                <button
+                  onClick={() => handleAddToCart(game.id)}
+                  className="add-to-cart-button"
+                >
+                  Agregar al carrito
+                </button>
               </div>
             </li>
           ))}
@@ -94,4 +128,4 @@ const GameList = () => {
   );
 };
 
-export default GameList;
+export default Store;
