@@ -5,6 +5,7 @@ import "./SignIn.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import AuthDetails from "../../utils/auth_details/AuthDetails";
 import { useNavigate } from "react-router-dom";
+import Header from "../header/Header";
 
 
 const SignIn = () => {
@@ -35,6 +36,7 @@ const SignIn = () => {
 
   return (
     <div className="sign-in-container">
+      <Header titulo='Steamcito'/>
       <form onSubmit={signIn}>
         <h1>Inicia sesión aquí</h1>
         <input
@@ -53,11 +55,6 @@ const SignIn = () => {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <AuthDetails />
       </form>
-      
-      <button type="button">
-        <Link to="/"> Volver a la página principal</Link>
-      </button>
-
     </div>
   
   );

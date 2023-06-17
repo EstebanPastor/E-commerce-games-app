@@ -75,18 +75,19 @@ const Store = () => {
 
   return (
     <>
-      <Header titulo="Steamcito" />
       <div className="game-list-container">
         <div className="search-container">
+          
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by game"
+            placeholder="Busca algún juego"
             className="search-input"
+            
           />
           <button onClick={handleSearch} className="searchButton">
-            Buscar juegos
+            Buscar
           </button>
           <button onClick={handleClearSearch} className="clearButton">
             Limpiar
@@ -94,6 +95,9 @@ const Store = () => {
           <button onClick={handleGoCart} className="cartButton">
             Carrito: {cartCount}
           </button>
+          <button type="button">
+        <Link to="/" style={{ textDecoration: 'none', color: 'white' }}> Página principal </Link>
+      </button>
         </div>
 
         <ul className="game-list">

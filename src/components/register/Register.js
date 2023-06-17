@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import "./Register.css";
+import Header from "../header/Header";
 
 import {
   createUserWithEmailAndPassword,
@@ -44,6 +45,7 @@ const SignUp = () => {
 
   return (
     <div className="sign-in-container">
+      <Header titulo='Steamcito'/>
       <form onSubmit={signup}>
         <h1>Crear una cuenta</h1>
         <input
@@ -67,10 +69,6 @@ const SignUp = () => {
           <Link to="/signin"> AQUI</Link> para iniciar sesión.
         </p>
       )}
-      <button type="button">
-        <Link to="/"> Volver a la página principal</Link>
-      </button>
-
     </div>
   );
 };

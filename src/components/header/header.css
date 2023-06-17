@@ -1,10 +1,7 @@
-
-
 * {
   color: white;
-  padding: auto;
-  margin: auto;
-  text-decoration: none;
+  margin-top: 60px; 
+  padding: 20px;
 }
 
 nav {
@@ -13,13 +10,17 @@ nav {
     align-items: center;
     height: 10vh;
     background-color: #000000;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
   #nav-mobile {
     display: flex;
     align-items: center;
     padding: 0;
     font-family: sans-serif;
+    
   }
   
   #nav-mobile ul {
@@ -29,11 +30,14 @@ nav {
     margin-left: auto;
     text-align: left;
     font-family:sans-serif;
+    
+    
   }
   #nav-mobile li {
     margin-right: 0.75rem;
     font-size: small;
     font-family: Verdana;
+    
   }
   
   .brand-logo {
@@ -72,20 +76,26 @@ nav {
     #nav-mobile {
       flex-direction: column;
       align-items: center;
+      color: #000000;
     }
     #nav-mobile ul {
       justify-content: center;
+      color: #000000;
     }
     #nav-mobile li {
       margin: 0.5rem 0;
+      color: #000000;
     }
     #nav-mobile li:last-child {
       margin-right: 0;
       margin-top: 1rem;
       color: #000000;
+      text-decoration: none;
     }
+  
   }
   ul, h4, a {
     color: white;
   }
 
+ 

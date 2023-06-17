@@ -16,7 +16,7 @@ const StorePage = () => {
       <p className="title">
         Podés ver nuestro catalogo completo y comprar desde la página.
         Solo haz click aquí:
-        <Link to="/store" className="game-card">
+        <Link to="/store" className="game-card" style={{ textDecoration: 'none', color: 'black' }}>
           TIENDA
         </Link>
       </p>
@@ -28,7 +28,7 @@ const StorePage = () => {
             Grand Theft Auto V es un juego de acción y aventuras que se juega
             desde una perspectiva en tercera o primera persona.
           </p>
-          <Link to="/store" className="game-card-link">
+          <Link to="/store" className="game-card-link" style={{ textDecoration: 'none', color: 'black' }}>
             ¡Juega ahora!
           </Link>
         </div>
@@ -40,7 +40,7 @@ const StorePage = () => {
             perspectiva en tercera persona. Los jugadores controlan a Geralt de
             Rivia, un asesino de monstruos conocido como Witcher.
           </p>
-          <Link to="/store" className="game-card-link">
+          <Link to="/store" className="game-card-link" style={{ textDecoration: 'none', color: 'black' }}>
             ¡Juega ahora!
           </Link>
         </div>
@@ -54,7 +54,7 @@ const StorePage = () => {
             cooperativa, o como un icono humanoide simplista en los rompecabezas
             desarrollados por la comunidad.
           </p>
-          <Link to="/store" className="game-card-link">
+          <Link to="/store" className="game-card-link" style={{ textDecoration: 'none', color: 'black' }}>
             ¡Juega ahora!
           </Link>
         </div>
@@ -70,7 +70,7 @@ const StorePage = () => {
             Lara, que no ha sido probada y aún no es la exploradora curtida en
             batalla.
           </p>
-          <Link to="/store" className="game-card-link">
+          <Link to="/store" className="game-card-link" style={{ textDecoration: 'none', color: 'black' }}>
             ¡Juega ahora!
           </Link>
         </div>
@@ -83,7 +83,7 @@ const StorePage = () => {
             defensores y sin reapariciones, lo que significa que si un jugador
             es eliminado, no reaparecerá hasta la siguiente ronda.
           </p>
-          <Link to="/store" className="game-card-link">
+          <Link to="/store" className="game-card-link" style={{ textDecoration: 'none', color: 'black' }}>
             ¡Juega ahora!
           </Link>
         </div>

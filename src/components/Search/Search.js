@@ -6,7 +6,7 @@ export const Search = () => {
     <>
       {" "}
       <div className="home">
-        <Link to="/">Volver a la página principañ</Link>
+        <Link to="/">Volver a la página principal</Link>
       </div>
       <div className="navbar">
         <div className="navbar-start">

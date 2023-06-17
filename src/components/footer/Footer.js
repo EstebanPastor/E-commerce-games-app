@@ -35,8 +35,8 @@ function Footer() {
           <div className="footer-col">
             <h4>Follow us</h4>
             <div className="social-links">
-              <a href="">All rights reserved</a>
-              <p className="copy">&copy;{new Date().getFullYear()}</p>
+              <a href="" style={{ textDecoration: 'none' }}>All rights reserved</a>
+              <p className="copy" >&copy;{new Date().getFullYear()}</p>
             </div>
           </div>
         </div>

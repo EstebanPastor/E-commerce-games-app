@@ -12,8 +12,8 @@ function Home() {
   };
   return (
     <>
+   <Header titulo="Steamcito" />
       <ThemeContext.Provider value={theme}>
-        <Header titulo="Steamcito" />
         <div className={`app ${theme}`}>
           <ToggleButton toggleTheme={toggleTheme} />
           <StorePage />

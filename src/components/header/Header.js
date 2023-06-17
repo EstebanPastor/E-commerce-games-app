@@ -21,28 +21,28 @@ function Header({ titulo, isLoggedIn }) {
 
       <div className="foto"></div>
       <nav>
-        <div className="nav-wrapper dark-red darken-2">
-          <a href="#!" className="brand-logo">
-            <li>
-              <Link to= "/">{titulo}</Link>
+        <div className="nav-wrapper dark-red darken-2" >
+          <a href="#!" className="brand-logo" >
+            <li >
+              <Link to= "/" >{titulo}</Link>
             </li>
           </a>
           <ul id="nav-mobile" className="right">
             <li>
-              <Link to="/store">Tienda</Link>
+              <Link to="/store" style={{ textDecoration: 'none' }} >Tienda</Link>
             </li>
             {isLoggedIn && (
               <li>
-                <Link to="/cart">Carrito</Link>
+                <Link to="/cart" style={{ textDecoration: 'none' }}>Carrito</Link>
               </li>
             )}
             {!isLoggedIn && (
               <>
-                <li>
-                  <Link to="/signin">Iniciar Sesión</Link>
+                <li >
+                  <Link to="/signin" style={{ textDecoration: 'none' }}>Iniciar Sesión</Link>
                 </li>
                 <li>
-                  <Link to="/register">Registro</Link>
+                  <Link to="/register" style={{ textDecoration: 'none' }}>Registro</Link>
                 </li>
               </>
             )}
