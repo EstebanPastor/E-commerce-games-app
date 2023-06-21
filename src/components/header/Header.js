@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route, Routes, Navigate } from "react-router-dom";
 import Store from "../store/Store";
 import Register from "../register/Register";
 import Cart from "../cart/Cart";
 import SignIn from "../sign_in/SignIn";
 import "./header.css";
+import ToggleButton from "../../components/toggleButon/ToggleButton";
+import ThemeContext from "../../context/ThemeContext";
+
 
 function Header({ titulo, isLoggedIn }) {
   return (
@@ -27,6 +30,7 @@ function Header({ titulo, isLoggedIn }) {
               <Link to= "/" >{titulo}</Link>
             </li>
           </a>
+          
           <ul id="nav-mobile" className="right">
             <li>
               <Link to="/store" style={{ textDecoration: 'none' }} >Tienda</Link>

@@ -1,6 +1,9 @@
 .shopping-cart {
   margin: 20px;
+  padding-top: 60px; 
+  
 }
+
 
 .cart-title {
   font-size: 24px;
@@ -23,7 +26,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #352323;
   padding: 10px;
 }
 
@@ -112,3 +115,4 @@
 .home-link:hover {
   background-color: #272827;
 }
+
