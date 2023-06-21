@@ -1,14 +1,13 @@
-
 .light {
-    background-color: white;
-    color: black;
-  }
-  
-  .dark {
-    background-color: black;
-    color: white;
-  }
+  background-color: white;
+  color: black;
+}
 
-  p {
-    color: #000;
-  }
+.dark {
+  background-color: black;
+  color: white;
+}
+
+p {
+  color: #000;
+}

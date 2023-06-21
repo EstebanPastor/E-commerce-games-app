@@ -3,6 +3,7 @@ import StorePage from "../store_page/StorePage";
 import ThemeContext from "../../context/ThemeContext";
 import { useState } from "react";
 import ToggleButton from "../../components/toggleButon/ToggleButton";
+import Footer from "../../components/footer/Footer";
 import "../../App.css";
 
 function Home() {
@@ -12,13 +13,14 @@ function Home() {
   };
   return (
     <>
-   <Header titulo="Steamcito" />
+      <Header titulo="Steamcito" />
       <ThemeContext.Provider value={theme}>
         <div className={`app ${theme}`}>
           <ToggleButton toggleTheme={toggleTheme} />
           <StorePage />
         </div>
       </ThemeContext.Provider>
+      <Footer />
     </>
   );
 }

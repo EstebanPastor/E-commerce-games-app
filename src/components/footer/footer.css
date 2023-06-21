@@ -10,7 +10,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  min-height: 58vh;
+  min-height: 20vh;
 }
 
 .row {
