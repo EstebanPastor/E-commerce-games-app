@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import "./SignIn.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import AuthDetails from "../../utils/auth_details/AuthDetails";
-import { useNavigate } from "react-router-dom";
 import Header from "../header/Header";
-
+import "./SignIn.css";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -18,12 +16,12 @@ const SignIn = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        
         setErrorMessage("");
         navigate("/cart");
       })
       .catch((error) => {
-        console.log(error);
+       
         if (error.code === "auth/user-not-found") {
           setErrorMessage(
             "User not found. Please check your email or sign up for a new account."
@@ -36,7 +34,7 @@ const SignIn = () => {
 
   return (
     <div className="sign-in-container">
-      <Header titulo='Steamcito'/>
+      <Header titulo="Steamcito" />
       <form onSubmit={signIn}>
         <h1>Inicia sesión aquí</h1>
         <input
@@ -51,12 +49,13 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Click aqui para iniciar sesion</button>
+        {!errorMessage && (
+          <button type="submit">Click aquí para iniciar sesión</button>
+        )}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <AuthDetails />
       </form>
     </div>
-  
   );
 };
 

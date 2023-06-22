@@ -126,7 +126,7 @@ const Store = () => {
     }
     games.push(game);
     localStorage.setItem('games', JSON.stringify(games));
-    console.log('game added');
+   
   };
 
   return (

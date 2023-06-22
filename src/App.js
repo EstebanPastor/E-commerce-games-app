@@ -4,7 +4,7 @@ import Home from "./pages/home/Home";
 import Store from "./components/store/Store";
 import SignIn from "./components/sign_in/SignIn";
 import Cart from "./components/cart/Cart";
-import NotFound from "./components/not_ound/NotFound";
+import NotFound from "./components/not_found/NotFound";
 
 function App() {
   return (

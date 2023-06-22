@@ -32,7 +32,7 @@ const AuthDetails = () => {
 
   return (
     <div>
-      {userExists ? ( // Add a check for userExists
+      {userExists ? ( 
         <>
           <p>{`Signed in as ${authUser?.email}`}</p>
           <button onClick={userSignOut}>Cerrar sesión</button>

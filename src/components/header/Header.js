@@ -8,45 +8,52 @@ import "./header.css";
 import ToggleButton from "../../components/toggleButon/ToggleButton";
 import ThemeContext from "../../context/ThemeContext";
 
-
 function Header({ titulo, isLoggedIn }) {
   return (
     <>
       <Routes>
         <Route path="/store" element={<Store />} />
-
         {isLoggedIn && <Route path="/cart" element={<Cart />} />}
-
         <Route path="/register" element={<Register />} />
-
         <Route path="/signin" element={<SignIn />} />
       </Routes>
 
       <div className="foto"></div>
       <nav>
-        <div className="nav-wrapper dark-red darken-2" >
-          <a href="#!" className="brand-logo" >
-            <li >
-              <Link to= "/" >{titulo}</Link>
+        <div className="nav-wrapper dark-red darken-2">
+          <a href="#!" className="brand-logo">
+            <li>
+              <Link to="/">{titulo}</Link>
             </li>
           </a>
-          
+
           <ul id="nav-mobile" className="right">
             <li>
-              <Link to="/store" style={{ textDecoration: 'none' }} >Tienda</Link>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to="/store" style={{ textDecoration: "none" }}>
+                Tienda
+              </Link>
             </li>
             {isLoggedIn && (
               <li>
-                <Link to="/cart" style={{ textDecoration: 'none' }}>Carrito</Link>
+                <Link to="/cart" style={{ textDecoration: "none" }}>
+                  Carrito
+                </Link>
               </li>
             )}
             {!isLoggedIn && (
               <>
-                <li >
-                  <Link to="/signin" style={{ textDecoration: 'none' }}>Iniciar Sesión</Link>
+                <li>
+                  <Link to="/signin" style={{ textDecoration: "none" }}>
+                    Iniciar Sesión
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/register" style={{ textDecoration: 'none' }}>Registro</Link>
+                  <Link to="/register" style={{ textDecoration: "none" }}>
+                    Registro
+                  </Link>
                 </li>
               </>
             )}

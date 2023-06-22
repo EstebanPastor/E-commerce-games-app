@@ -57,7 +57,7 @@ const Cart = () => {
 
   return (
     <div className={`shopping-cart ${theme}`}>
-      <Header titulo={"Steamcito"} />
+   
       <h2 className="cart-title">Carrito de compras Steamcito</h2>
       {cartItems.length === 0 ? (
         <p className="empty-cart">Tu carrito de compras está vacío.</p>

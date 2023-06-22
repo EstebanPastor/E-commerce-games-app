@@ -1,33 +1,13 @@
-/* NotFound.css */
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.light {
+  background-color: white;
+  color: black;
 }
 
-.error-code {
-  font-size: 100px;
+.dark {
+  background-color: black;
+  color: white;
+}
+
+p {
   color: #000;
-}
-
-.error-message {
-  font-size: 24px;
-  color: #000;
-  margin-top: 10px;
-}
-
-.back-link {
-  display: inline-block;
-  background-color: #4285f4;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-
-.back-link:hover {
-  background-color: #1c5dc4;
 }

@@ -32,12 +32,12 @@ const SignUp = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+       
         setSuccessMessage("Usuario creado correctamente! Inicia sesión.");
         setErrorMessage("");
       })
       .catch((error) => {
-        console.log(error);
+       
         setErrorMessage("Hubo un error, por favor intenta nuevamente.");
         setSuccessMessage("");
       });
