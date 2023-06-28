@@ -5,7 +5,7 @@ import "./authdetails.css";
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
-  const [userExists, setUserExists] = useState(true); // Add a new state variable
+  const [userExists, setUserExists] = useState(true); 
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -15,6 +15,7 @@ const AuthDetails = () => {
       } else {
         setAuthUser(null);
         setUserExists(false);
+
       }
     });
     return () => {
@@ -32,7 +33,7 @@ const AuthDetails = () => {
 
   return (
     <div>
-      {userExists ? ( 
+      {userExists ? (
         <>
           <p>{`Signed in as ${authUser?.email}`}</p>
           <button onClick={userSignOut}>Cerrar sesión</button>

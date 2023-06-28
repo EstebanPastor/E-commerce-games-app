@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link, Route, Routes, Navigate } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Store from "../store/Store";
 import Register from "../register/Register";
 import Cart from "../cart/Cart";
 import SignIn from "../sign_in/SignIn";
 import "./header.css";
-import ToggleButton from "../../components/toggleButon/ToggleButton";
-import ThemeContext from "../../context/ThemeContext";
 
 function Header({ titulo, isLoggedIn }) {
   return (
@@ -19,18 +16,16 @@ function Header({ titulo, isLoggedIn }) {
       </Routes>
 
       <div className="foto"></div>
-      <nav >
-        <div className="nav-wrapper dark-red darken-2" >
+      <nav>
+        <div className="nav-wrapper dark-red darken-2">
           <a href="#!" className="brand-logo">
             <li>
-              <Link to="/" >{titulo}</Link>
+              <Link to="/">{titulo}</Link>
             </li>
           </a>
 
           <ul id="nav-mobile" className="right">
-            <li>
-  
-            </li>
+            <li></li>
             <li>
               <Link to="/store" style={{ textDecoration: "none" }}>
                 Tienda
