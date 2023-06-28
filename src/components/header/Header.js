@@ -19,17 +19,17 @@ function Header({ titulo, isLoggedIn }) {
       </Routes>
 
       <div className="foto"></div>
-      <nav>
-        <div className="nav-wrapper dark-red darken-2">
+      <nav >
+        <div className="nav-wrapper dark-red darken-2" >
           <a href="#!" className="brand-logo">
             <li>
-              <Link to="/">{titulo}</Link>
+              <Link to="/" >{titulo}</Link>
             </li>
           </a>
 
           <ul id="nav-mobile" className="right">
             <li>
-              <Link to={"/"}>Home</Link>
+  
             </li>
             <li>
               <Link to="/store" style={{ textDecoration: "none" }}>
