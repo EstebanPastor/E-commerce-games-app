@@ -35,7 +35,7 @@ const Cart = () => {
   const addToCart = (game) => {
     if (balance < totalPrice + game.price) {
       alert(
-        "Insufficient balance. Please remove items from your cart or add funds to your account."
+        "Saldo insuficiente. Elimine algunos o agregue fondos a su cuenta"
       );
     } else {
       setCartItems([...cartItems, game]);
@@ -116,11 +116,11 @@ const Cart = () => {
 
   const handlePayment = () => {
     if (cartItems.length === 0) {
-      alert("Your cart is empty. Add some items to proceed with the payment.");
+      alert("Tu compra está vacía. Agrega algunos juegos para completar el pago!");
     } else {
       if (balance < totalPrice) {
         alert(
-          "Insufficient balance. Please remove items from your cart or add funds to your account."
+          "Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta."
         );
       } else {
         setPaymentSuccess(true);

@@ -56,7 +56,7 @@ const SignUp = () => {
         <ThemeContext.Provider value={theme}>
             <Header titulo='Steamcito'/>
             <form onSubmit={signup}>
-              <h1>Crear una cuenta</h1>
+              <h1 style={{ color: 'rgb(57, 87, 133)' }}>Crear una cuenta</h1>
               <input
                 type="email"
                 placeholder="Ingresa tu e-mail"

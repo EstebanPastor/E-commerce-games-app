@@ -31,21 +31,21 @@ const SignIn = () => {
        
         if (error.code === "auth/user-not-found") {
           setErrorMessage(
-            "User not found. Please check your email or sign up for a new account."
+            "Usuario no encontrado. Por favor chequea tu email o crea una cuenta."
           );
         } else {
-          setErrorMessage("Failed to sign in. Please try again.");
+          setErrorMessage("Hubo un error. Por favor intenta nuevamente.");
         }
       });
   };
 
   return (
-  <>
-    <div className={`sign-in-container ${theme}`}>
-      <ThemeContext.Provider value={theme}>
+  <ThemeContext.Provider value={theme}>
+   <>
+       <div className={`sign-in-container ${theme}`}>
             <Header titulo="Steamcito" />
             <form onSubmit={signIn}>
-              <h1>Inicia sesión aquí</h1>
+              <h1 style={{ color: 'rgb(57, 87, 133)' }}>Inicia sesión</h1>
               <input
                 type="email"
                 placeholder="Ingresa tu e-mail"
@@ -54,21 +54,21 @@ const SignIn = () => {
               />
               <input
                 type="password"
-                placeholder="Ingresa tu password"
+                placeholder="Ingresa tu contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               {!errorMessage && (
-                <button type="submit">Click aquí para iniciar sesión</button>
+                <button type="submit">Iniciar sesión</button>
               )}
               {errorMessage && <p className="error-message">{errorMessage}</p>}
               <AuthDetails />
             </form>
-            <ToggleButton toggleTheme={toggleTheme} />
-      </ThemeContext.Provider>
     </div>
     <Footer />
-  </>  
+    <ToggleButton toggleTheme={toggleTheme} />
+    </>
+    </ThemeContext.Provider>
   );
 };
 
