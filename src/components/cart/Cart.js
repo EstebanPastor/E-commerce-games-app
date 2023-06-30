@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Cart.css";
-import Header from "../header/Header";
 import cs_go from "../../assets/cs_go.jpg";
 import gta_v from "../../assets/gta_v.jpg";
 import portal2 from "../../assets/portal_2.jpg";
@@ -12,31 +11,24 @@ import left_4_dead_2 from "../../assets/left_4_dead_2.jpg";
 import portal from "../../assets/portal.jpg";
 import rdr from "../../assets/red_dead_redemption_2.jpeg";
 import skyrim from "../../assets/skyrim.jpg";
-import ThemeContext from "../../context/ThemeContext";
-import ToggleButton from "../../components/toggleButon/ToggleButton";
-import Footer from "../../components/footer/Footer";
+import { toast } from "react-hot-toast";
+
 const Cart = () => {
-  
   const [cartItems, setCartItems] = useState([]);
   const [availableGames, setAvailableGames] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [balance, setBalance] = useState(100);
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
 
   useEffect(() => {
     setAvailableGames(games);
   }, []);
 
+  const navigate = useNavigate();
+
   const addToCart = (game) => {
     if (balance < totalPrice + game.price) {
-      alert(
-        "Saldo insuficiente. Elimine algunos o agregue fondos a su cuenta"
-      );
+      alert("Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta.");
     } else {
       setCartItems([...cartItems, game]);
       setTotalPrice(totalPrice + game.price);
@@ -108,25 +100,26 @@ const Cart = () => {
     },
     {
       id: 10,
-      name: "The elder scroll Skyrim",
+      name: "The Elder Scrolls V: Skyrim",
       price: 8.1,
       image: skyrim,
     },
+   
   ];
 
   const handlePayment = () => {
     if (cartItems.length === 0) {
-      alert("Tu compra está vacía. Agrega algunos juegos para completar el pago!");
+      alert("Tu compra está vacía. Agrega algunos juegos para completar el pago.");
     } else {
       if (balance < totalPrice) {
-        alert(
-          "Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta."
-        );
+        alert("Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta.");
       } else {
         setPaymentSuccess(true);
         setCartItems([]);
         setTotalPrice(0);
         setBalance(balance - totalPrice);
+        toast.success("¡Gracias por su compra!");
+        navigate("/Store");
       }
     }
   };
@@ -148,10 +141,7 @@ const Cart = () => {
                   <p className="game-price">Price: ${item.price.toFixed(2)}</p>
                 </div>
               </div>
-              <button
-                className="remove-button"
-                onClick={() => removeFromCart(item)}
-              >
+              <button className="remove-button" onClick={() => removeFromCart(item)}>
                 Borrar producto
               </button>
             </li>
@@ -170,13 +160,10 @@ const Cart = () => {
   };
 
   return (
-  <>
-    <div className={`shopping-cart ${theme}`}>
-      <Header titulo={"Steamcito"}/>
+    <div className="cart-container">
       <h2 className="cart-title">Carrito de compras Steamcito</h2>
       {renderCartItems()}
       <h3 className="game-list-title">¡Lista de juegos disponibles!</h3>
-        <ToggleButton toggleTheme={toggleTheme} className="toggle-button" />
       <p className="balance">Balance: ${balance.toFixed(2)}</p>
       <ul className="game-list">
         {availableGames.map((game) => (
@@ -196,12 +183,8 @@ const Cart = () => {
           </li>
         ))}
       </ul>
-      {paymentSuccess && <h1>El pago fue realizado exitosamente</h1>}
-      <Link to="/Store">Volver a la tienda</Link>
+      <Link to="/Store" className="go-back">Volver a la tienda</Link>
     </div>
-    <Footer/>
-  </>
- 
   );
 };
 

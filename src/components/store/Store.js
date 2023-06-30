@@ -18,7 +18,6 @@ const Store = () => {
   const [games, setGames] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -42,102 +41,83 @@ const Store = () => {
     if (addedGameId) {
       const addedGame = games.find((game) => game.id === addedGameId);
       if (addedGame) {
-        setCartItems((prevCartItems) => [...prevCartItems, addedGame]);
+        setCartItems((prevCartItems) => [...prevCartItems, addedGame.id]);
       }
     }
   }, [location.state?.addedGameId]);
 
-  const handleSearch = () => {
+  useEffect(() => {
     const filteredResults = games.filter((game) =>
       game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(filteredResults);
-  };
+  }, [searchTerm, games]);
 
   const handleClearSearch = () => {
     setSearchTerm("");
-    setSearchResults(games);
-  };
-
-  const handleBuy = (gameId) => {
-    console.log(`Comprando juego con ID ${gameId}`);
-  };
-
-  const handleAddToCart = (gameId) => {
-    console.log(`Agregando al carrito el juego con ID ${gameId}`);
-    setCartCount((prevCount) => prevCount + 1);
-    const addedGame = games.find((game) => game.id === gameId);
-    if (addedGame) {
-      setCartItems((prevCartItems) => [...prevCartItems, addedGame]);
-    }
   };
 
   const handleGoCart = () => {
-    navigate("/cart");
+    const cartItemsData = cartItems.map((itemId) => {
+      const game = games.find((game) => game.id === itemId);
+      return game;
+    });
+    navigate("/cart", { state: { cartItems: cartItemsData } });
   };
 
   return (
     <>
-    <div className={`app ${theme}`}>
-      <ThemeContext.Provider value={theme}>
-        <Header titulo="Steamcito" />
-        <div className="game-list-container">
-          <div className="search-container">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Busca algún juego"
-              className="search-input"
-            />
-            <button onClick={handleSearch} className="searchButton">
-              Buscar
-            </button>
-            <button onClick={handleClearSearch} className="clearButton">
-              Limpiar
-            </button>
-            <button onClick={handleGoCart} className="cartButton">
-              Carrito: {cartCount}
-            </button>
-            <button type="button">
-              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                Página principal
-              </Link>
-            </button>
+      <div className={`app ${theme}`}>
+        <ThemeContext.Provider value={theme}>
+          <Header titulo="Steamcito" />
+          <div className="game-list-container">
+            <div className="search-container">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search for a game"
+                className="search-input"
+              />
+              <button onClick={handleClearSearch} className="clearButton">
+               Limpiar
+              </button>
+              <button onClick={handleGoCart} className="cartButton">
+              Comprar
+              </button>
+              <button type="button">
+                <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                  Página principal
+                </Link>
+              </button>
+            </div>
+
+            <ul className="game-list">
+              {searchResults.map((game) => (
+                <li key={game.id} className="game-list-item">
+                  <img
+                    src={game.background_image}
+                    alt={game.name}
+                    className="game-list-item-image"
+                  />
+
+                  <div className="game-list-item-details">
+                    <h3 className="game-list-item-title">{game.name}</h3>
+                    <p className="game-list-item-platforms">
+                      Platforms:{" "}
+                      {game.platforms
+                        .map((platform) => platform.platform.name)
+                        .join(", ")}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <ul className="game-list">
-            {searchResults.map((game) => (
-              <li key={game.id} className="game-list-item">
-                <img
-                  src={game.background_image}
-                  alt={game.name}
-                  className="game-list-item-image"
-                />
-
-                <div className="game-list-item-details">
-                  <h3 className="game-list-item-title">{game.name}</h3>
-                  <p className="game-list-item-platforms">
-                    Platforms:{" "}
-                    {game.platforms
-                      .map((platform) => platform.platform.name)
-                      .join(", ")}
-                  </p>
-                  <button
-                    onClick={() => handleAddToCart(game.id)}
-                    className="add-to-cart-button"
-                  >
-                    Agregar al carrito
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <ToggleButton toggleTheme={toggleTheme} />
-      </ThemeContext.Provider>
-    </div> 
-    <Footer />
+          <ToggleButton toggleTheme={toggleTheme} />
+        </ThemeContext.Provider>
+      </div>
+      <Footer />
     </>
   );
 };

@@ -5,10 +5,12 @@ import Store from "./components/store/Store";
 import SignIn from "./components/sign_in/SignIn";
 import Cart from "./components/cart/Cart";
 import NotFound from "./components/not_found/NotFound";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
+      <Toaster />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

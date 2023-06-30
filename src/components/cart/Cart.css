@@ -6,22 +6,21 @@
 }
 
 
-.toggle-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.game-list-title {
+  color: #000;
 }
-
 .cart-title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .empty-cart {
   font-size: 18px;
   font-style: italic;
   color: #888;
+  text-align: center;
 }
 
 .cart-items {
@@ -37,10 +36,6 @@
   padding: 10px;
 }
 
-.cart-title {
-  align-items: center;
-  text-align: center;
-}
 .cart-item .game-info {
   display: flex;
   align-items: center;
@@ -60,7 +55,7 @@
 
 .game-name {
   font-weight: bold;
-  color:  rgb(57, 87, 133);
+  color: #395785;
 }
 
 .game-price {
@@ -90,12 +85,11 @@
   font-weight: bold;
 }
 
-.go-back-title {
-  display: flex;
-  justify-content: flex-end;
-  color: #000;
+.balance {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
 }
-
 
 .payment-button {
   background-color: #3498db;
@@ -107,12 +101,6 @@
 
 .payment-button:hover {
   background-color: #2980b9;
-}
-
-.balance {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 20px;
 }
 
 .payment-success {
@@ -134,4 +122,9 @@
 
 .return-link:hover {
   background-color: #272827;
+}
+
+.go-back{
+  color: black;
+  margin-top: 25px;
 }

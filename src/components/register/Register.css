@@ -6,4 +6,13 @@
     background-color: #333;
     color: #fff;
   }
-  
+  .click-here-btn{
+    background-color: #fff;
+    color: #333;
+   
+ 
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px 0;
+  }
