@@ -4,8 +4,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  
-  
 }
 
 .app {
@@ -15,9 +13,9 @@
   justify-content: center;
   background-color: #f9f9f9;
   padding: 2rem;
-  border-radius: 8px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .search-container {
   display: flex;
@@ -45,7 +43,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-right: 1rem;
-  margin-top: 0.25rem; /* Ajusta el valor según sea necesario */
+  margin-top: 0.25rem;
   font-size: 1rem;
   flex-grow: 1;
 }
@@ -92,7 +90,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 1.5rem;
-  
 }
 
 .game-list-item {
@@ -100,7 +97,6 @@
   flex-direction: column;
   border-radius: 8px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  
 }
 
 .game-list-item-image {
@@ -112,34 +108,33 @@
 .game-list-item-details {
   padding: 1rem;
   flex-grow: 1;
-  
 }
 
 .game-list-item-title {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  
+  color: black;
 }
 
 .game-list-item-platforms {
   font-size: 0.9rem;
   color: #666;
-  
 }
 
-.game-list-item-price {
-  font-size: 1rem;
-  color: #666;
-  
-}
+
 
 /* Dark mode styles */
 .app.dark {
-  background-color: #333;
+  background-color: #000000;
   color: #fff;
 }
 
-.game-list-item-details.dark {
+.app.dark .game-list-item-details {
+  background-color: #000000;
   color: #fff;
-  background-color: #333;
+}
+
+.app.dark .game-list-item-title {
+  color: #fff;
+  background-color: #000000;
 }
