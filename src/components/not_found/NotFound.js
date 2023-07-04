@@ -1,4 +1,4 @@
-import nf from "./notfound.css"
+import nf from "./notfound.css";
 
 const NotFound = () => {
   return (
