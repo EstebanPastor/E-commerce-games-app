@@ -19,6 +19,7 @@ const Store = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [noGamesFound, setNoGamesFound] = useState(false); // New state for validation
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,6 +52,7 @@ const Store = () => {
       game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(filteredResults);
+    setNoGamesFound(filteredResults.length === 0); // Set validation state
   }, [searchTerm, games]);
 
   const handleClearSearch = () => {
@@ -80,10 +82,10 @@ const Store = () => {
                 className="search-input"
               />
               <button onClick={handleClearSearch} className="clearButton">
-               Limpiar
+                Limpiar
               </button>
               <button onClick={handleGoCart} className="cartButton">
-              Comprar
+                Comprar
               </button>
               <button type="button">
                 <Link to="/" style={{ textDecoration: "none", color: "white" }}>
@@ -92,27 +94,31 @@ const Store = () => {
               </button>
             </div>
 
-            <ul className="game-list">
-              {searchResults.map((game) => (
-                <li key={game.id} className="game-list-item">
-                  <img
-                    src={game.background_image}
-                    alt={game.name}
-                    className="game-list-item-image"
-                  />
+            {noGamesFound ? ( 
+              <p className="no-games-found">No games found with that name</p>
+            ) : (
+              <ul className="game-list">
+                {searchResults.map((game) => (
+                  <li key={game.id} className="game-list-item">
+                    <img
+                      src={game.background_image}
+                      alt={game.name}
+                      className="game-list-item-image"
+                    />
 
-                  <div className="game-list-item-details">
-                    <h3 className="game-list-item-title">{game.name}</h3>
-                    <p className="game-list-item-platforms">
-                      Platforms:{" "}
-                      {game.platforms
-                        .map((platform) => platform.platform.name)
-                        .join(", ")}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                    <div className="game-list-item-details">
+                      <h3 className="game-list-item-title">{game.name}</h3>
+                      <p className="game-list-item-platforms">
+                        Platforms:{" "}
+                        {game.platforms
+                          .map((platform) => platform.platform.name)
+                          .join(", ")}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <ToggleButton toggleTheme={toggleTheme} />
         </ThemeContext.Provider>

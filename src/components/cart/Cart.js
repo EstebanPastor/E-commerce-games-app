@@ -28,7 +28,9 @@ const Cart = () => {
 
   const addToCart = (game) => {
     if (balance < totalPrice + game.price) {
-      alert("Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta.");
+      toast.error(
+        "Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta."
+      );
     } else {
       setCartItems([...cartItems, game]);
       setTotalPrice(totalPrice + game.price);
@@ -47,19 +49,19 @@ const Cart = () => {
     {
       id: 1,
       name: "Counter Strike Global Offensive",
-      price: 14.0,
+      price: 18,
       image: cs_go,
     },
     {
       id: 2,
       name: "GTA V",
-      price: 15.0,
+      price: 15.55,
       image: gta_v,
     },
     {
       id: 3,
       name: "Portal 2",
-      price: 12.55,
+      price: 25,
       image: portal2,
     },
     {
@@ -71,19 +73,19 @@ const Cart = () => {
     {
       id: 5,
       name: "Tomb Raider 2013",
-      price: 8.1,
+      price: 10,
       image: tomb_raider_2013,
     },
     {
       id: 6,
       name: "Bioshock infinite",
-      price: 8.1,
+      price: 7,
       image: bioshock,
     },
     {
       id: 7,
       name: "Left 4 dead 2",
-      price: 8.1,
+      price: 9,
       image: left_4_dead_2,
     },
     {
@@ -95,24 +97,27 @@ const Cart = () => {
     {
       id: 9,
       name: "Red Dead Redemption 2",
-      price: 8.1,
+      price: 30,
       image: rdr,
     },
     {
       id: 10,
       name: "The Elder Scrolls V: Skyrim",
-      price: 8.1,
+      price: 15,
       image: skyrim,
     },
-   
   ];
 
   const handlePayment = () => {
-    if (cartItems.length === 0) {
-      alert("Tu compra está vacía. Agrega algunos juegos para completar el pago.");
+    if (balance < totalPrice) {
+      toast.error(
+        "Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta."
+      );
     } else {
       if (balance < totalPrice) {
-        alert("Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta.");
+        toast.error(
+          "Saldo insuficiente. Elimine algunos juegos o agregue fondos a su cuenta."
+        );
       } else {
         setPaymentSuccess(true);
         setCartItems([]);
@@ -141,7 +146,10 @@ const Cart = () => {
                   <p className="game-price">Price: ${item.price.toFixed(2)}</p>
                 </div>
               </div>
-              <button className="remove-button" onClick={() => removeFromCart(item)}>
+              <button
+                className="remove-button"
+                onClick={() => removeFromCart(item)}
+              >
                 Borrar producto
               </button>
             </li>
@@ -183,7 +191,9 @@ const Cart = () => {
           </li>
         ))}
       </ul>
-      <Link to="/Store" className="go-back">Volver a la tienda</Link>
+      <Link to="/Store" className="go-back">
+        Volver a la tienda
+      </Link>
     </div>
   );
 };
