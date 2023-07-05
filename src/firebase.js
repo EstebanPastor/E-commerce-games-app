@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBI1rHX8KWv9mA_H4wHj2FfJeYTVOKGKMc",
+  apiKey: `${process.env.REACT_APP_FIREBASE_KEY}`,
   authDomain: "steamcito-app.firebaseapp.com",
   projectId: "steamcito-app",
   storageBucket: "steamcito-app.appspot.com",
