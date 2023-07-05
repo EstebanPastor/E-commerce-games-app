@@ -18,7 +18,7 @@ const SignIn = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setErrorMessage("");
+       
         navigate("/cart");
       })
       .catch((error) => {
