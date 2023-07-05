@@ -30,13 +30,6 @@ function Header({ titulo }) {
                 Tienda
               </Link>
             </li>
-
-            <li>
-              <Link to="/cart" style={{ textDecoration: "none" }}>
-                Carrito
-              </Link>
-            </li>
-
             <>
               <li>
                 <Link to="/signin" style={{ textDecoration: "none" }}>

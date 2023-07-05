@@ -84,9 +84,7 @@ const Store = () => {
               <button onClick={handleClearSearch} className="clearButton">
                 Limpiar
               </button>
-              <button onClick={handleGoCart} className="cartButton">
-                Comprar
-              </button>
+             
               <button type="button">
                 <Link to="/" style={{ textDecoration: "none", color: "white" }}>
                   Página principal

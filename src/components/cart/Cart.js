@@ -124,7 +124,7 @@ const Cart = () => {
         setTotalPrice(0);
         setBalance(balance - totalPrice);
         toast.success("¡Gracias por su compra!");
-        navigate("/Store");
+        navigate("/Cart");
       }
     }
   };
