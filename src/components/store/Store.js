@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Store.css";
 import Header from "../header/Header";
 import ToggleButton from "../../components/toggleButon/ToggleButton";
@@ -7,9 +7,6 @@ import ThemeContext from "../../context/ThemeContext";
 import Footer from "../../components/footer/Footer";
 
 const Store = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
@@ -18,8 +15,8 @@ const Store = () => {
   const [games, setGames] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
-  const [noGamesFound, setNoGamesFound] = useState(false); // New state for validation
+
+  const [noGamesFound, setNoGamesFound] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,33 +35,15 @@ const Store = () => {
   }, []);
 
   useEffect(() => {
-    const addedGameId = location.state?.addedGameId;
-    if (addedGameId) {
-      const addedGame = games.find((game) => game.id === addedGameId);
-      if (addedGame) {
-        setCartItems((prevCartItems) => [...prevCartItems, addedGame.id]);
-      }
-    }
-  }, [location.state?.addedGameId]);
-
-  useEffect(() => {
     const filteredResults = games.filter((game) =>
       game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(filteredResults);
-    setNoGamesFound(filteredResults.length === 0); // Set validation state
+    setNoGamesFound(filteredResults.length === 0);
   }, [searchTerm, games]);
 
   const handleClearSearch = () => {
     setSearchTerm("");
-  };
-
-  const handleGoCart = () => {
-    const cartItemsData = cartItems.map((itemId) => {
-      const game = games.find((game) => game.id === itemId);
-      return game;
-    });
-    navigate("/cart", { state: { cartItems: cartItemsData } });
   };
 
   return (
@@ -84,7 +63,7 @@ const Store = () => {
               <button onClick={handleClearSearch} className="clearButton">
                 Limpiar
               </button>
-             
+
               <button type="button">
                 <Link to="/" style={{ textDecoration: "none", color: "white" }}>
                   Página principal
@@ -92,7 +71,7 @@ const Store = () => {
               </button>
             </div>
 
-            {noGamesFound ? ( 
+            {noGamesFound ? (
               <p className="no-games-found">No games found with that name</p>
             ) : (
               <ul className="game-list">
