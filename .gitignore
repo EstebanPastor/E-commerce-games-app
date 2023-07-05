@@ -22,8 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#enviroment
+
+./src/firebase.js
+
 .env
 
-firebase.js
-node_modules
+REACT_APP_API_KEY=5c49b6e80ecc49078d93356502c028c6
